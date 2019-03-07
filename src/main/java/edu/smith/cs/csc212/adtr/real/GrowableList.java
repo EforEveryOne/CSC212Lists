@@ -16,6 +16,7 @@ public class GrowableList<T> extends ListADT<T> {
 	@Override
 	public T removeFront() {
 		this.checkNotEmpty();
+//		we call remove index here, which is all we need, but we need the method removeIndex(arg) to work!
 		return removeIndex(0);
 	}
 
@@ -25,17 +26,24 @@ public class GrowableList<T> extends ListADT<T> {
 		return removeIndex(fill-1);
 	}
 
+//	We have our method defined here, now we need to make it work!
 	@Override
 	public T removeIndex(int index) {
+//		Check if not empty, so we don't crash.
 		checkNotEmpty();
+//		???
 		checkExclusiveIndex(index);
-		
+
 		T removed = this.getIndex(index);
-		
 		// TODO: Now we need to slide everything to the left.
-		throw new TODOErr();
+		fill--;
+		for (int i=index; i<fill; i++) {
+			this.array[i] = this.array[i+1];
+		}
+		this.array[fill] = null;
+//		throw new TODOErr();
 		// When we're done, give back the thing that we removed.
-		//return removed;
+		return removed;
 	}
 
 	@Override
@@ -110,7 +118,11 @@ public class GrowableList<T> extends ListADT<T> {
 
 	@Override
 	public void setIndex(int index, T value) {
-		throw new TODOErr();
+//		value = (T) this.array[index];
+//		throw new TODOErr();
+		checkNotEmpty();
+		this.checkExclusiveIndex(index);
+		this.array[index] = value;
 	}
 
 }

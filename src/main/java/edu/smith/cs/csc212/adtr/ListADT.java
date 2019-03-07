@@ -59,6 +59,8 @@ public abstract class ListADT<ItemType> implements Iterable<ItemType> {
 	 * @return this.getIndex(this.size()-1);
 	 */
 	public abstract ItemType getBack();
+	
+	
 
 	/**
 	 * Add an item with value before the item at the given index.

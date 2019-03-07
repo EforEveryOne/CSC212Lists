@@ -50,6 +50,7 @@ public class ChunkyArrayListTest {
 		data.removeFront();
 	}
 	
+	
 	@Test(expected=EmptyListError.class)
 	public void testRemoveBackCrash() {
 		ListADT<String> data = makeEmptyList();
@@ -60,6 +61,10 @@ public class ChunkyArrayListTest {
 	public void testRemoveIndexCrash() {
 		ListADT<String> data = makeEmptyList();
 		data.removeIndex(3);
+		
+		
+		
+		
 	}
 
 	@Test
