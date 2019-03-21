@@ -31,7 +31,6 @@ public class GrowableList<T> extends ListADT<T> {
 	public T removeIndex(int index) {
 //		Check if not empty, so we don't crash.
 		checkNotEmpty();
-//		???
 		checkExclusiveIndex(index);
 
 		T removed = this.getIndex(index);
@@ -63,7 +62,18 @@ public class GrowableList<T> extends ListADT<T> {
 	 * This private method is called when we need to make room in our GrowableList.
 	 */
 	private void resizeArray() {
-		throw new TODOErr();
+//		throw new TODOErr();
+		int newSize = fill * 2;
+		Object[] newArray = new Object[newSize];
+//		This is O(n), but we don't do it all the time. Only when we need to grow our list.
+		for (int i = 0; i < array.length; i++) {
+			newArray[i] = array[i];
+		}
+		this.array = newArray;
+		
+		
+		
+		
 	}
 
 	@Override
