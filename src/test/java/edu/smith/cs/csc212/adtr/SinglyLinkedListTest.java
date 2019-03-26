@@ -258,6 +258,12 @@ public class SinglyLinkedListTest {
 	public void testGetFront() {
 		ListADT<String> data = makeABCDList();
 		assertEquals("a", data.getFront());
+		
+		
+		
+		
+		
+		
 	}
 	
 	@Test
