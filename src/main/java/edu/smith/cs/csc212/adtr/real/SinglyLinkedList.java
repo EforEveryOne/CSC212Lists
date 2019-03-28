@@ -14,8 +14,76 @@ public class SinglyLinkedList<T> extends ListADT<T> {
 	@Override
 	public T removeFront() {
 		checkNotEmpty();
+//		return removeIndex(0);
 		
-		throw new TODOErr();
+		Node<T> n = this.start;
+		this.start = start.next;
+		return n.value;
+//		start = start.next;
+//		return (T) start.value;
+		
+		
+		
+		
+
+//		this.start = new Node<T>(item, start);
+		
+//		for (Node<T> n = this.start;
+//				n != null;
+//				n = n.next) {
+//		return (T) n.next
+//				}
+//		return n;
+		
+		
+//		
+//		Node<T> current = this.start; n = this.next;
+//		
+//		this.next = null;
+//		current = this.next;
+			
+			
+//		current.start = null;
+//		while (current != null) {
+//		System.out.println(current.value);
+//		current.value = null;
+//		current = current.next;
+//		}
+//		return null;
+//		return (T) current;
+
+//        start = start.next;
+//        return (T) start;
+//		
+//		remove index(0)
+//		 if (start == null) {
+//			 return null;
+//		 }
+//		 else {
+//             if (start == next) {
+//
+//                   start = null;
+//
+//                   next = null;
+//
+//             } else {
+//                   start = start.next;
+//             }
+//       }
+//		return null;
+		
+//		if this node this.n = start
+//		then this.start = this.next
+//		We know how to grab the front, index 0, but how to delete it?
+//		Node<T> b = this.start;
+//		if (b.next != null) {
+//			b.next = this.start;
+//			this.start = null;
+//		}
+//		return b.value;
+		
+				
+//		throw new TODOErr();
 		
 	}
 
@@ -26,6 +94,10 @@ public class SinglyLinkedList<T> extends ListADT<T> {
 
 	@Override
 	public T removeIndex(int index) {
+		getIndex(0);
+//		n.value = null;
+		
+		
 		throw new TODOErr();
 	}
 
@@ -36,6 +108,16 @@ public class SinglyLinkedList<T> extends ListADT<T> {
 
 	@Override
 	public void addBack(T item) {
+		if (this.isEmpty()) {
+			this.addFront(item);
+			return;
+		}
+		for (Node<T> b = this.start; b != null; b = b.next) {
+			if (b.next == null) {
+			b.next = new Node<T>(item, null);
+				return;
+				}
+		}
 //		for (int i=1; item.next!=null;i++);
 //		for (Node<T>)
 		
@@ -54,7 +136,7 @@ public class SinglyLinkedList<T> extends ListADT<T> {
 //		this.next = new Node<T>(item, next);
 		
 		
-		throw new TODOErr();
+//		throw new TODOErr();
 	}
 
 	@Override
@@ -62,8 +144,6 @@ public class SinglyLinkedList<T> extends ListADT<T> {
 		throw new TODOErr();
 	}
 	
-	
-//	this needs more work, gotta check for index?
 	@Override
 	public T getFront() {
 		checkNotEmpty();
@@ -75,9 +155,6 @@ public class SinglyLinkedList<T> extends ListADT<T> {
 //		return n.value;	
 		return getIndex(0);
 //		throw new TODOErr();
-		
-		
-		
 	}
 
 	@Override
@@ -114,6 +191,7 @@ public class SinglyLinkedList<T> extends ListADT<T> {
 		return count;
 	}
 
+
 	@Override
 	public boolean isEmpty() {
 		return this.start == null;
@@ -125,6 +203,7 @@ public class SinglyLinkedList<T> extends ListADT<T> {
 	 * @param <T> the type of the values stored.
 	 */
 	private static class Node<T> {
+		public Object start;
 		/**
 		 * What node comes after me?
 		 */
